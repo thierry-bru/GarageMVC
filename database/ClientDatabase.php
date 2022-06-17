@@ -4,10 +4,13 @@ class ClientDatabase
 {
     public static function create($pdo,$pClient):bool
     {
+        // attention ` est IMPORTANT
+        $sql="INSERT INTO CLIENT(`nom`,`prenom`,`adresse`,`email`,`telephone`)
+            VALUES ('$pClient->nom','$pClient->prenom','$pClient->adresse','$pClient->email',
+            '$pClient->telephone')";
+         echo "sql:$sql";  
         try {
-            $sql="INSERT INTO CLIENT('nom','prenom','adresse','email','telephone')
-            VALUES ($pClient->nom,$pClient->prenom,$pClient->adresse,$pClient->email,$pClient->telephone)";
-            $pdo->exec($sql);
+             $pdo->exec($sql);
             return true;
         } catch (PDOException $exception) {
             return false;

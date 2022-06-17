@@ -8,4 +8,5 @@ if (!isset($_POST['command']))
 else
 {
 echo "formulaire posté";
+    traiterFormulaire($_POST);
 }
