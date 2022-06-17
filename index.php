@@ -1,12 +1,20 @@
 <?php
 require_once '/Applications/XAMPP/xamppfiles/htdocs/GarageMVC/controllers/controllers.php';
 
-if (!isset($_POST['command']))
+if (!isset($_REQUEST['command']))
 {
-    afficherFormulaireCreation();
+    afficherListeClient();
+
 }
 else
 {
-echo "formulaire posté";
-    traiterFormulaire($_POST);
+    switch($_REQUEST['command'])
+    {
+        case 'create-client':traiterFormulaire($_POST);
+        break;
+        case 'form-client':afficherFormulaireCreation();
+        break;
+        default:afficherListeClient();
+    }
+    
 }

@@ -13,4 +13,11 @@ function traiterFormulaire($post)
     echo "traité!";
 
 }
+function afficherListeClient()
+{
+    $pdo = pdo_connect();
+    $listeClients = ClientDatabase::getList($pdo);
+    require_once '/Applications/XAMPP/xamppfiles/htdocs/GarageMVC/views/clients/template_liste_clients.php';
+
+}
 ?>

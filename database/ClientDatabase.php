@@ -16,5 +16,13 @@ class ClientDatabase
             return false;
         }
     }
+
+    public static function getList($pdo)
+    {
+        $sql = $pdo->prepare('SELECT * FROM CLIENT;');
+        $sql->execute();
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+        
+    }
 }
 ?>
